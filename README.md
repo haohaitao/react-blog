@@ -14,3 +14,7 @@ npm start
 npm run build
 
 ```
+
+# License
+
+[MIT](https://github.com/haohaitao/react-demo/blob/master/LICENSE)
