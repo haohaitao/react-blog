@@ -5,6 +5,7 @@ import NotFound from './components/NotFound';
 import { BrowserRouter as Router, Route, Redirect, Switch} from "react-router-dom";
 // 页头页脚和侧边栏通用组件
 import Header from './components/Header'
+import Footer from './components/Footer';
 
 function router() {
   return (
@@ -19,6 +20,7 @@ function router() {
             <Redirect to="/err" />
          </Switch>
        </div>
+       <Footer />
     </Router>);
 }
 

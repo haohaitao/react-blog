@@ -4,11 +4,11 @@ class Home extends Component {
   render(){
     return (
         <div className="App">
-          <header className="App-header">
+          <main className="App-header" style={{height:'1500px'}}>
             <p>
               我是react的首页
             </p>
-          </header>
+          </main>
         </div>
     );
   } 
