@@ -16,7 +16,6 @@ export const HeaderWrapper = styled.div`
     width: 100%;
     height: 70px;
     position: fixed;
-    margin-left: -8px;
     top: 0;
     z-index: 1;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
@@ -59,16 +58,19 @@ export const HeaderWrapper = styled.div`
         float: right;
         line-height: 70px;
       }
-        .nav-far {
-            margin-right: 38px;
+    .nav-far {
+        margin-right: 38px;
         }
-            li {
-            position: relative;
-            float: left;
-            margin: 0 16px;
-            list-style: none;
-            font-size: 14px;
-            }
+    li {
+        position: relative;
+        float: left;
+        margin: 0 16px;
+        list-style: none;
+        font-size: 14px;
+        a{
+          font-size: 14px;
+        }
+        }
 `
 export const FooterWrapper = styled.div`
     footer {

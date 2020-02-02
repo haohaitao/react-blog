@@ -19,7 +19,7 @@ class Footer extends Component {
             <p className="link-git">
               <span className="name">
                 Copyright © 2019-2020&nbsp;
-                <a target="_blank" href="/" rel="noopener noreferrer">版权所有</a>&nbsp;
+                <a target="_blank" rel="noopener noreferrer" href="/" >版权所有</a>&nbsp;
               </span>
               <span className="github">
                 <a target="_blank" rel="noopener noreferrer" href="https://github.com/haohaitao">
@@ -29,7 +29,7 @@ class Footer extends Component {
             </p>
             <BackTop>
               <div className="ant-back-top-inner" title="返回顶部"> 
-                <div style={{width: '14px',height: '16px',margin: '12px auto'}}>
+                <div style={{width: '14px',height: '16px',margin: '8px auto'}}>
                     <Icon type="caret-up" />
                 </div>
               </div>

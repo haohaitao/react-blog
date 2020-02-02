@@ -1,51 +1,79 @@
 import React, { Component } from 'react';
-import { HeaderWrapper } from './style'
-import {Link} from 'react-router-dom'
+import { HeaderWrapper } from './style';
+import { Link } from 'react-router-dom';
+import { Menu, Dropdown, Icon } from 'antd';
 
 class Header extends Component {
-  render(){
+  state = {
+    visible: false,
+  };
+  handleMenuClick = e => {
+    console.log(e)
+    if (e.key === '3') {
+      this.setState({ visible: false });
+    }
+  };
+
+  handleVisibleChange = flag => {
+    this.setState({ visible: flag });
+  };
+  render() {
+    const menu = (
+      <Menu onClick={this.handleMenuClick}>
+        <Menu.Item key="1">JavaScript</Menu.Item>
+        <Menu.Item key="2">PHP</Menu.Item>
+      </Menu>
+    );
     return (
       <HeaderWrapper>
         <header className="head-page">
           <div className="container">
             <div className="home left">
-              <i className="el-icon-cherry"/>
+              <i className="el-icon-cherry" />
               <Link to="/">个人主页</Link>
             </div>
             <div className="nav-right">
               <ul className="nav-far">
-                <Link to="/">
                   <li>
-                    <i type="ios-home"/>首页
+                    <Link to="/">
+                    首页
+                    </Link>
                   </li>
-                </Link>
-                <Link  to="/everyday">
-                  <li>
-                    <i type="ios-link" style={{fontWeight: 'bold'}}/>每日一图
-                  </li>
+                <li>
+                  <Dropdown overlay={menu}
+                    onVisibleChange={this.handleVisibleChange}>
+                      <a className="ant-dropdown-link" href="#">
+                        分类<Icon type="down" />
+                      </a>
+                  </Dropdown>
+                </li>
+                <li>
+                  <Link to="/everyday">
+                    每日一图
                 </Link >
-                <Link  to="/online_chat">
-                  <li>
-                    <i type="ios-link" style={{fontWeight: 'bold'}}/>聊天室
-                  </li>
+                </li>
+              <li> 
+                <Link to="/online_chat">
+                    聊天室
                 </Link>
-                <Link to="/statistics">
-                  <li>
-                    <i type="md-heart"/>统计
-                  </li>
+                </li>
+               <li> 
+                 <Link to="/statistics">
+                    统计
                 </Link>
-                <Link to="/about">
-                  <li>
-                    <i type="md-heart"/>关于
-                  </li>
-                </Link>
+                </li>
+                <li>
+                  <Link to="/about">
+                    关于
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>
         </header>
       </HeaderWrapper>
     )
-  } 
+  }
 }
 
 export default Header;
