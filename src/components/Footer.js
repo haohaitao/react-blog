@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { FooterWrapper } from './style'
+import { FooterContent } from './style'
 import { BackTop,Icon } from 'antd';
 
 class Footer extends Component {
   render() {
     return (
-      <FooterWrapper>
-        <footer>
+        <FooterContent>
           <div className="container">
             <span className="footer-flot sec-desc-footer">
               <a
@@ -35,8 +34,7 @@ class Footer extends Component {
               </div>
             </BackTop>
           </div>
-        </footer>
-      </FooterWrapper>
+        </FooterContent>
     )
   }
 }

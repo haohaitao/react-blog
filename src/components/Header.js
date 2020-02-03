@@ -26,7 +26,7 @@ class Header extends Component {
     );
     return (
       <HeaderWrapper>
-        <header className="head-page">
+        <div className="head-page">
           <div className="container">
             <div className="home left">
               <i className="el-icon-cherry" />
@@ -70,7 +70,7 @@ class Header extends Component {
               </ul>
             </div>
           </div>
-        </header>
+        </div>
       </HeaderWrapper>
     )
   }

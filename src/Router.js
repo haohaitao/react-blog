@@ -11,7 +11,6 @@ function router() {
   return (
     <Router>
        <Header />
-       <div style={{marginTop:'70px'}}>
          <Switch>
             <Route exact path="/" component={Home} />  {/*首页*/}
             <Route exact path="/about" component={About} />  {/*关于我们*/}
@@ -19,7 +18,6 @@ function router() {
             {/* 如果匹配到以上路由将渲染路由，否则重定向404 */}
             <Redirect to="/err" />
          </Switch>
-       </div>
        <Footer />
     </Router>);
 }

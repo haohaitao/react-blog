@@ -1,6 +1,13 @@
 import styled from 'styled-components'
 
-export const HeaderWrapper = styled.div`
+export const HeaderWrapper = styled.header`
+  background: #fff;
+  width: 100%;
+  height: 70px;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
 *{
   margin: 0;
 	padding: 0;
@@ -11,16 +18,6 @@ export const HeaderWrapper = styled.div`
 	-khtml-user-select: none;
 	user-select: none;
 }
-  header {
-    background: rgba(255, 255, 255, 0.94);
-    width: 100%;
-    height: 70px;
-    position: fixed;
-    top: 0;
-    z-index: 1;
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
-  }
-
   .container {
     width: 1080px;
     min-width: 1080px;
@@ -72,7 +69,7 @@ export const HeaderWrapper = styled.div`
         }
         }
 `
-export const FooterWrapper = styled.div`
+export const FooterContent = styled.footer`
     footer {
       margin-top: 16px;
       height: 120px;
