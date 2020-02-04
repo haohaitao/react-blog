@@ -138,7 +138,7 @@ class Home extends Component {
                           ></div>
                         </div>
                       <div className="desc">
-                          <p className="title" title="val.title">{val.title}</p>
+                          <p className="title" title={val.title} onClick={this.jump.bind(this,val)}>{val.title}</p>
                           <p className="excerpt" dangerouslySetInnerHTML={{__html:val.excerpt}}></p>
                         <div className="desc-bottom">
                           <div className="d-detail,hidden-detail">
@@ -149,7 +149,7 @@ class Home extends Component {
                             {
                               val.total_comments!==0?
                               <div style={{display:'inline-block',marginLeft: '5px'}}>
-                                <Icon type="edit" />
+                                <Icon type="message" />
                                 <span style={{fontSize: '14px',marginLeft: '5px'}}>{val.total_comments}</span>
                               </div>
                                 : ''

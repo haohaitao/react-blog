@@ -13,7 +13,7 @@ export const SectionContent = styled.main`
   margin-bottom: 70px;
   float:left;
   article {
-    width: 750px;
+    width: 700px;
     height: 193px;
     position: relative;
     border-radius: 5px;
@@ -122,7 +122,7 @@ export const SectionContent = styled.main`
   }
   
   .desc {
-    width: 60%;
+    width: 70%;
     height: 110px;
     background: #fff;
     padding: 7px 15px 10px;
@@ -137,9 +137,14 @@ export const SectionContent = styled.main`
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    transition: padding-left .5s;
   }
   .title:hover {
     color: #ff8b18;
+    cursor:pointer;
+    position:relative;
+    padding-left: 6px;
+    text-decoration: overline;
   }
   .excerpt {
     height: 90px;
@@ -176,8 +181,57 @@ export const SectionContent = styled.main`
 `
 
 export const SliderAside = styled.aside`
-  float:right;
-  width:200px;
+  float:left;
+  width:255px;
   margin-top:20px;
-  border:1px solid red;
+  font-size:16px;
+  h3{
+    background: #f8f8f8;
+    height: 30px;
+    line-height: 30px;
+    border-bottom: 1px solid #ddd;
+    padding-left:10px;
+    font-size: 14px;
+  }
+  section{
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.04);
+    margin-bottom:10px;
+  }
+  section>ul{
+    padding-left:10px;
+  }
+  section>ul li{
+    list-style-type:none;
+    font-size:13px;
+    padding: 8px 0;
+    width:220px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .listNumber{
+    font-size: 12px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    background-color: #7f828b;
+    color: #fff;
+    margin-right: 8px;
+    display: inline-block;
+  }
+  .tag{
+    display: inline-block;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #eee;
+    cursor:pointer;
+    margin: 0 0 8px 8px;
+  }
+  .tag:hover{
+    background:#eee;
+    transition:background .5s;
+  }
 `
