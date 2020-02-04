@@ -70,6 +70,7 @@ export const HeaderWrapper = styled.header`
         }
 `
 export const FooterContent = styled.footer`
+    clear:both;
     footer {
       margin-top: 16px;
       height: 120px;
