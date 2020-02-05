@@ -12,7 +12,8 @@ function router() {
     <Router>
        <Header />
          <Switch>
-            <Route exact path="/" component={Home} />  {/*首页*/}
+            <Route path="/" component={Home} />  {/*首页*/}
+            <Route path="/:page" component={Home} />  {/*首页*/}
             <Route exact path="/about" component={About} />  {/*关于我们*/}
             <Route exact path="/err" component={NotFound} />{/*404页面*/}
             {/* 如果匹配到以上路由将渲染路由，否则重定向404 */}

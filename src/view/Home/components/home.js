@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import * as http from '../../../common/http';
 import * as config from '../../../common/config';
 import { SectionContent } from '../style.js'
-import { Icon } from 'antd'
+import { Icon,Pagination  } from 'antd'
+import { withRouter } from 'react-router-dom'
 
 let rootUrl = config.default.apiUrl
 class Home extends Component {
@@ -100,7 +101,9 @@ class Home extends Component {
           pageviews: 0,
           total_comments: 0,
         }
-      ] //保存拿到的文章数据
+      ], //保存拿到的文章数据
+      total:0, //分页数量
+      page:1,//默认第一页 
     }
   }
   componentWillMount(){
@@ -112,7 +115,8 @@ class Home extends Component {
           item.excerpt = item.excerpt.rendered
         });
           this.setState({
-            listData:res.data
+            listData:res.data,
+            total: parseInt(res.headers["x-wp-total"])
           })
       }
     })
@@ -122,8 +126,31 @@ class Home extends Component {
   jump(val){
     console.log(val)
   }
+  onChange(pageNumber) {
+    this.setState({
+      page:pageNumber
+    },()=>{
+      http.getJson('/wp-json/wp/v2/posts?per_page=10&page=' + pageNumber,'',rootUrl).then( (res)=> {
+        res.data.forEach((item)=>{
+          item.title = item.title.rendered
+          item.excerpt = item.excerpt.rendered
+        })
+        this.setState({
+          listData:res.data,
+          total: parseInt(res.headers["x-wp-total"])
+        })
+    })
+    if(this.state.page === 1){
+      this.props.history.push('/');
+      document.documentElement.scrollTop = document.body.scrollTop =0;
+    }else{
+      this.props.history.push('/'+ this.state.page);
+      document.documentElement.scrollTop = document.body.scrollTop =0;
+    }
+    })
+  }
   render(){
-    const { listData } = this.state
+    const { listData,total,page } = this.state
     return (
             <SectionContent>
               {
@@ -162,9 +189,10 @@ class Home extends Component {
                 })
               }
               <div className="clear"></div>
+              <Pagination style={{textAlign:'right'}} current={page} total={total} onChange={this.onChange.bind(this)} />
             </SectionContent>
-    );
+    )
   } 
 }
 
-export default Home;
+export default withRouter(Home);
