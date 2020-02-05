@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import * as http from '../../../common/http';
-import * as config from '../../../common/config';
 import { SliderAside } from '../style'
 import { Icon } from 'antd';
 
-let rootUrl = config.default.apiUrl
 class Slider extends Component {
   constructor(props) {
     super(props)
@@ -103,7 +101,7 @@ class Slider extends Component {
   }
   componentWillMount() {
     // 最新文章
-    http.getJson('/wp-json/wp/v2/posts', '', rootUrl).then((res) => {
+    http.getJson('/api/wp-json/wp/v2/posts', '', '').then((res) => {
       if (res.status === 200) {
         res.data.forEach(item => {
           item.title = item.title.rendered
@@ -114,7 +112,7 @@ class Slider extends Component {
       }
     })
     // 标签
-    http.getJson('/wp-json/wp/v2/tags', '', rootUrl).then((res) => {
+    http.getJson('/api/wp-json/wp/v2/tags', '', '').then((res) => {
       if (res.status === 200) {
         this.setState({
           cateData: res.data
