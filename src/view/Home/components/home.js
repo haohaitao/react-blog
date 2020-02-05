@@ -106,7 +106,6 @@ class Home extends Component {
   }
   componentWillMount(){
     http.getJson('/api/wp-json/wp/v2/posts?per_page=10','','').then( (res)=> {
-      console.log(res)
       if(res.status === 200){
         res.data.forEach(item => {
           item.title = item.title.rendered
@@ -123,6 +122,8 @@ class Home extends Component {
   }
   jump(val){
     console.log(val)
+    this.props.history.push({pathname:'/article/' + val.id})
+    console.log(this.props)
   }
   onChange(pageNumber) {
     this.setState({

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { HeaderWrapper } from './style';
 import { Link } from 'react-router-dom';
 import { Menu, Dropdown, Icon } from 'antd';
-import { Router } from 'react-router-dom';
 
 class Header extends Component {
   state = {
