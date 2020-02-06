@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import * as http from '../../../common/http';
 import { SliderAside } from '../style'
-import { Icon } from 'antd';
+import { Icon,Affix } from 'antd';
 import { withRouter} from 'react-router-dom'
 
 class Slider extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      top:90,
       listData: [
         {
           id: '1',
@@ -128,6 +129,7 @@ class Slider extends Component {
     const { listData, cateData } = this.state;
     return (
       <SliderAside>
+        <Affix offsetTop={this.state.top}>
         {/* 最新文章 */}
         <section>
           <h3 className="hot">
@@ -160,6 +162,7 @@ class Slider extends Component {
         </section>
 
         <div className="clear"></div>
+        </Affix>
       </SliderAside>
     );
   }

@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import bg from '../statics/imgs/bg.png'
 
 export const HeaderWrapper = styled.header`
   background: #fff;
@@ -132,4 +133,20 @@ export const FooterContent = styled.footer`
           -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
           transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
         }
+`
+
+export const MainWrapper = styled.div`
+    height: 620px;
+    padding-top:90px;
+    .content{
+      padding: 20px;
+      text-align: center;
+    }
+    .image-box{
+      font-size: 0;
+      display: inline-block;
+      padding: 30px 140px;
+      box-sizing: border-box;
+      background: url(${bg}) no-repeat center;
+    }
 `

@@ -12,7 +12,6 @@ class Everyday extends Component {
   componentDidMount(){
     http.getJson('api/wp-json/wp/v2/pages/994','','').then( (res)=> {
       if(res.status === 200){
-        console.log(res)
         res.data.content = res.data.content.rendered
         this.setState({
           val:res.data

@@ -8,7 +8,6 @@ class Header extends Component {
     visible: false,
   };
   handleMenuClick = e => {
-    console.log(e)
     if (e.key === '3') {
       this.setState({ visible: false });
     }
@@ -51,11 +50,6 @@ class Header extends Component {
                   <Link to="/everyday">
                     每日一图
                 </Link >
-                </li>
-               <li> 
-                 <Link to="/statistics">
-                    统计
-                </Link>
                 </li>
                 <li>
                   <Link to="/about">

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import * as http from '../../common/http';
 import { ArticleContent } from './style.js'
 import { Tag  } from 'antd'
-import { withRouter,Link } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 
 class Detail extends Component {
   constructor(props) {
@@ -15,8 +15,6 @@ class Detail extends Component {
   componentWillMount() {
     //获取页面详情
     let id = this.props.match.params.id;
-    let tempTag = this.state.tagData
-    let tempBlog = this.state.blogData
     http.getJson('/api/wp-json/wp/v2/posts/' + id,'','').then( (res)=>{
       res.data.title = res.data.title.rendered
       res.data.content = res.data.content.rendered

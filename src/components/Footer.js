@@ -22,8 +22,7 @@ class Footer extends Component {
             <span className="footer-flot sec-footer-flot">｜</span>
             <p className="link-git">
               <span className="name">
-                Copyright © 2019-2020&nbsp;
-                <a target="_blank" rel="noopener noreferrer" href="/" >版权所有</a>&nbsp;
+                Copyright © 2019-2020&nbsp;版权所有&nbsp;
               </span>
               <span className="github">
                 <a target="_blank" rel="noopener noreferrer" href="https://github.com/haohaitao">
