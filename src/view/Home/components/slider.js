@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import * as http from '../../../common/http';
 import { SliderAside } from '../style'
 import { Icon } from 'antd';
+import { withRouter} from 'react-router-dom'
 
 class Slider extends Component {
   constructor(props) {
@@ -120,9 +121,9 @@ class Slider extends Component {
       }
     })
   }
-  componentDidMount() {
+  newPost(val){
+    this.props.history.push({pathname:'/article/' + val.id})
   }
-
   render() {
     const { listData, cateData } = this.state;
     return (
@@ -136,7 +137,7 @@ class Slider extends Component {
             {
               listData.map((item, index) => {
                 return (
-                  <li key={item.id}><span className="listNumber">{index + 1}</span>{item.title}</li>
+                  <li key={item.id} onClick={this.newPost.bind(this,item)}><span className="listNumber">{index + 1}</span><span className="newPost">{item.title}</span></li>
                 )
               })
             }
@@ -164,4 +165,4 @@ class Slider extends Component {
   }
 }
 
-export default Slider;
+export default withRouter(Slider);

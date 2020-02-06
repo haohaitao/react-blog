@@ -210,6 +210,16 @@ export const SliderAside = styled.aside`
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    cursor:pointer;
+  }
+  section>ul li .newPost{
+    transition: padding-left .5s;
+  }
+  section>ul li .newPost:hover{
+    color: #ff8b18;
+    cursor: pointer;
+    position: relative;
+    padding-left: 10px;
   }
   .listNumber{
     font-size: 12px;

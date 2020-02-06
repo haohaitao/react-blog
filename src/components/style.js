@@ -70,6 +70,7 @@ export const HeaderWrapper = styled.header`
         }
 `
 export const FooterContent = styled.footer`
+    margin-top:35px;
     clear:both;
     footer {
       margin-top: 16px;
@@ -94,10 +95,11 @@ export const FooterContent = styled.footer`
           display: inline-block;
         }
         .link-git {
-          position: relative;
-          top: 50%;
           transform: translateY(-50%);
           display: inline-block;
+        }
+        a{
+          color:#555;
         }
         .ant-back-top{
           -webkit-box-sizing: border-box;

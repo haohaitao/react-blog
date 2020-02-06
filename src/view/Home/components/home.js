@@ -118,12 +118,8 @@ class Home extends Component {
       }
     })
   }
-  componentDidMount(){
-  }
   jump(val){
-    console.log(val)
     this.props.history.push({pathname:'/article/' + val.id})
-    console.log(this.props)
   }
   onChange(pageNumber) {
     this.setState({

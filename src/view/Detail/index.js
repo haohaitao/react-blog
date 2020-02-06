@@ -62,13 +62,19 @@ class Detail extends Component {
                 <div id="blog" dangerouslySetInnerHTML={{__html:blog.content}}></div>
                 <div className="content-footer">
                 <div className="article-info">
-                  <p>文章分类：<Tag color="blue">{blog.category_name}</Tag></p>
-                  <p>文章标签：{tagData.map( (ele)=>{return (<Tag color="blue" key={ele.id} style={{paddingRight:'8px'}}>{ele.name}</Tag>)})}</p> 
-                  <p>版权声明：
-                    <Link to="https://creativecommons.org/licenses/by-nc/3.0/cn/deed.zh" target="_blank"> 自由转载-署名-非商用</Link></p>
-                  
-                    <p>本文由 <Link to="/">{blog.author === 1 ? '一只' : '博主'}</Link> 创作，转载请注明</p>
-                    <p>最后编辑时间：{(blog.modified ? blog.modified.split('T')['0'] : '1970-01-01') + ' ' + (blog.modified ? blog.modified.split('T')['1'] : '00:00:00')}</p>
+                  <div>文章分类：<Tag color="blue">{blog.category_name}</Tag></div>
+                  <div>文章标签：{
+                      tagData.map( (ele)=>{
+                        return(
+                          <Tag color="blue" key={ele.id} style={{paddingRight:'8px'}}>
+                                  {ele.name}
+                                </Tag>
+                        )
+                      })
+                    }
+                  </div> 
+                  <p>版权声明：<a href="https://creativecommons.org/licenses/by-nc/3.0/cn/deed.zh" target="_blank"> 自由转载-署名-非商用</a></p>
+                  <p>最后编辑时间：{(blog.modified ? blog.modified.split('T')['0'] : '1970-01-01') + ' ' + (blog.modified ? blog.modified.split('T')['1'] : '00:00:00')}</p>
                 </div>
                 </div>
             </div>

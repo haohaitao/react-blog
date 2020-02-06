@@ -47,5 +47,6 @@ export const ArticleContent = styled.article`
     }
     a {
       border-bottom: 1px solid #ccc;
+      color:#555;
     }
 `
