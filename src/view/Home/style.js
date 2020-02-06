@@ -143,7 +143,7 @@ export const SectionContent = styled.main`
     color: #ff8b18;
     cursor:pointer;
     position:relative;
-    padding-left: 6px;
+    padding-left: 10px;
     text-decoration: overline;
   }
   .excerpt {

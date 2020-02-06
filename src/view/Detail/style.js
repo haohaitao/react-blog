@@ -12,50 +12,40 @@ export const ArticleContent = styled.article`
     line-height: 32px;
     margin-top: 90px;
     img{
-      width: 100%;
+      max-width: 100%;
+      width: auto;
+      height: auto;
+      vertical-align: middle;
+      display: block;
     }
     .art-header {
       padding-bottom: 12px;
       border-bottom: 1px dashed #b7b7b7;
       position: relative;
     }
-    h1 {
-      font-size: 22px;
-      color: #222;
-      font-weight: 400;
-      line-height: 1.8;
-    }
 
     .header-info {
       margin: 12px 0px 0;
+      color: #999;
+      font-size: 12px;
+    }
+    .header-info span{
+      padding-right:6px;
     }
 
-    .header-tag {
-      width: 85%;
-      margin-top: 14px;
-      height: 33px;
-    }
-    .header-tag span {
-      margin-right: 12px;
-    }
-    .tag-time {
-      position: absolute;
-      right: 0;
-      bottom: 12px;
-      line-height: 14px;
-    }
-
-    .content-footer {
-      border-top: 1px solid #e0e0e0;
-      padding-top: 26px;
-      color: #24292e;
+    .article-info{
+      border-left: 2px solid #ccc;
+      background-color: #f6f8fa;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      padding: 15px 0 15px 15px;
       font-size: 14px;
-      text-align: center;
+      margin-top:20px;
+    }
+    .content-footer {
+      border-top:1px dashed #eee;
     }
     a {
       border-bottom: 1px solid #ccc;
-    }
-    a:hover {
-      border-bottom: 1px solid #eb5055;
     }
 `

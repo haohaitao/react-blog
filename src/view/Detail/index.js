@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import * as http from '../../common/http';
 import { ArticleContent } from './style.js'
-import { Icon } from 'antd'
+import { Tag  } from 'antd'
 import { withRouter,Link } from 'react-router-dom'
 
 class Detail extends Component {
@@ -24,16 +24,17 @@ class Detail extends Component {
       this.setState({
         blog:res.data
       })
-      console.log(res.data)
       if(res.data.tags.length>0){
           this.setState({
             tagData:[]
           })//如果tags有内容，清空tagData
+          let tempTag = []
           res.data.tags.map( (item)=> {
           http.getJson('/api/wp-json/wp/v2/tags/' + item,'','').then( (res)=> {
+            tempTag.push(res.data)
             this.setState({
-              tagData:tempTag.push(res.data)
-            },()=>console.log(this.state))
+              tagData:tempTag
+            })
           })
         })
       }
@@ -51,30 +52,24 @@ class Detail extends Component {
       <ArticleContent>
               <div className="detail-article" >
                 <div className="art-header">
-                  <h1>{blog.title}</h1>
+                  <h2>{blog.title}</h2>
                   <div className="header-info">
-                    <i className="el-icon-table-lamp" />
-                    <Link to="`/categorie?categorieId=${blog.categories}`">{blog.category_name}</Link>
-                    <i className="el-icon-date" />
-                    {blog.date ? blog.date.split('T')['0'] : '1970-01-01'}
-                    <i className="el-icon-view" />
-                    {blog.pageviews}
-                    <i className="el-icon-s-comment" />
-                    <span>{blog.total_comments}</span>
-                  </div>
-                  <div className="header-tag">
-        
-                          <span>{tagData.name}</span>
-                  </div>
-                  <div className="tag-time">
-                    <i className="el-icon-timer" />
-                    {blog.date ? blog.date.split('T')['1'] : '1970-01-01'}
+                    <span>发布于：{blog.date ? blog.date.split('T')['0'] + ' ' + blog.date.split('T')['1'] : '1970-01-01'}</span>
+                    <span>{blog.pageviews}次浏览</span>                    
+                    <span>{blog.total_comments}条浏览</span>
                   </div>
                 </div>
                 <div id="blog" dangerouslySetInnerHTML={{__html:blog.content}}></div>
                 <div className="content-footer">
-                  <p>本文由 <Link to="/">{blog.author === 1 ? '一只' : '博主'}</Link> 创作，转载请注明</p>
-                  <p>最后编辑时间：{(blog.modified ? blog.modified.split('T')['0'] : '1970-01-01') + ' ' + (blog.modified ? blog.modified.split('T')['1'] : '00:00:00')}</p>
+                <div className="article-info">
+                  <p>文章分类：<Tag color="blue">{blog.category_name}</Tag></p>
+                  <p>文章标签：{tagData.map( (ele)=>{return (<Tag color="blue" key={ele.id} style={{paddingRight:'8px'}}>{ele.name}</Tag>)})}</p> 
+                  <p>版权声明：
+                    <Link to="https://creativecommons.org/licenses/by-nc/3.0/cn/deed.zh" target="_blank"> 自由转载-署名-非商用</Link></p>
+                  
+                    <p>本文由 <Link to="/">{blog.author === 1 ? '一只' : '博主'}</Link> 创作，转载请注明</p>
+                    <p>最后编辑时间：{(blog.modified ? blog.modified.split('T')['0'] : '1970-01-01') + ' ' + (blog.modified ? blog.modified.split('T')['1'] : '00:00:00')}</p>
+                </div>
                 </div>
             </div>
       </ArticleContent>
