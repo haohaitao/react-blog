@@ -52,11 +52,6 @@ class Header extends Component {
                     每日一图
                 </Link >
                 </li>
-              <li> 
-                <Link to="/online_chat">
-                    聊天室
-                </Link>
-                </li>
                <li> 
                  <Link to="/statistics">
                     统计
