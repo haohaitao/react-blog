@@ -181,8 +181,8 @@ export const CateDetailWrapper = styled.main`
   }
   .artList-by-type{
     background-color: #fff;
-    padding: 15px;
-    margin-bottom: 15px;
+    margin: 15px;
+    padding: 15px 0;
     text-align: center;
     font-size: 16px;
   }
