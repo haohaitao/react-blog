@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { HomeWrapper } from './style'
-import Home from './components/home'
+import { CateWrapper } from './style'
+import Detail from './cateDetail'
 import Slider from '../../components/Slider'
 
 class HomeMain extends Component {
@@ -12,10 +12,10 @@ class HomeMain extends Component {
   }
   render(){
     return (
-      <HomeWrapper>
-        <Home/>
+      <CateWrapper>
+        <Detail/>
         <Slider/>
-      </HomeWrapper>
+      </CateWrapper>
     )
   } 
 }

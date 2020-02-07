@@ -184,7 +184,7 @@ class Home extends Component {
                 })
               }
               <div className="clear"></div>
-              <Pagination style={{textAlign:'right'}} current={page} total={total} onChange={this.onChange.bind(this)} />
+              <Pagination style={{textAlign:'right',marginRight: '20px'}} current={page} total={total} onChange={this.onChange.bind(this)} />
             </SectionContent>
     )
   } 

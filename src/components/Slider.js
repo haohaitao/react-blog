@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
-import * as http from '../../../common/http';
-import { SliderAside } from '../style'
+import * as http from '../common/http';
+import { SliderAside } from './style'
 import { Icon,Affix } from 'antd';
-import { withRouter} from 'react-router-dom'
 
 class Slider extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      top:90,
       listData: [
         {
           id: '1',
@@ -99,6 +97,7 @@ class Slider extends Component {
           count: ''
         },
       ],//存储分类
+      top: 90,
     }
   }
   componentWillMount() {
@@ -168,4 +167,4 @@ class Slider extends Component {
   }
 }
 
-export default withRouter(Slider);
+export default Slider;

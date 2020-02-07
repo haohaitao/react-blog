@@ -49,4 +49,37 @@ export const ArticleContent = styled.article`
       border-bottom: 1px solid #ccc;
       color:#555;
     }
+    .post-nav-l{
+      position: fixed;
+      left: 10px;
+      top: 45%;
+      font-size: 50px !important;
+      width: 50px;
+      z-index: 1;
+    }
+    .post-nav-l span{
+      font-size: 45px;
+      color: #b6b6b6;
+      text-align: center;
+    }
+    .post-nav-l span:hover {
+      color: #555;
+      cursor:pointer;
+  }
+    .post-nav-r{
+      position: fixed;
+      right: 10px;
+      top: 45%;
+      width: 50px;
+      z-index: 1;
+    }
+    .post-nav-r span{
+      font-size: 45px;
+      color: #b6b6b6;
+      text-align: center;
+    }
+    .post-nav-r span:hover {
+      color: #555;
+      cursor:pointer;
+  }
 `
