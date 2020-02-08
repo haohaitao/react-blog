@@ -3,6 +3,8 @@ import * as http from '../../common/http';
 import { ArticleContent } from './style.js'
 import { Tag,Icon  } from 'antd'
 import { withRouter } from 'react-router-dom'
+// Use import
+import Valine from 'valine';
 
 class Detail extends Component {
   constructor(props) {
@@ -49,9 +51,33 @@ class Detail extends Component {
         })
       }
     })
+    new Valine({
+      el: '#vcomments' ,
+      appId: 'wNI2p4s8vWn36lxuaIjj6UeL-gzGzoHsz',
+      appKey: 'YUbtra7lMlHq7tg0ykWAUUKX',
+      notify:true, 
+      verify:true, 
+      avatar:'mp', 
+      placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
+      recordIP:true
+    })
   }
 
+  componentDidUpdate(){
+    console.log('更新了')
+  }
   componentWillReceiveProps(nextProps){
+    console.log('变化了')
+    new Valine({
+      el: '#vcomments' ,
+      appId: 'wNI2p4s8vWn36lxuaIjj6UeL-gzGzoHsz',
+      appKey: 'YUbtra7lMlHq7tg0ykWAUUKX',
+      notify:true, 
+      verify:true, 
+      avatar:'mp', 
+      placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
+      recordIP:true
+    })
     if(nextProps.match.params.id != this.props.match.params.id){
       let id = nextProps.match.params.id;
       http.getJson('/api/wp-json/wp/v2/posts/' + id,'','').then( (res)=>{
@@ -134,6 +160,7 @@ class Detail extends Component {
                   <p>版权声明：<a href="https://creativecommons.org/licenses/by-nc/3.0/cn/deed.zh" target="_blank" rel="noopener noreferrer"> 自由转载-署名-非商用</a></p>
                   <p>最后编辑时间：{(blog.modified ? blog.modified.split('T')['0'] : '1970-01-01') + ' ' + (blog.modified ? blog.modified.split('T')['1'] : '00:00:00')}</p>
                 </div>
+                <div id="vcomments"></div>
                 </div>
             </div>
       </ArticleContent>
