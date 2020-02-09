@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import * as http from '../../common/http';
 import { ArticleContent } from './style.js'
-import { Tag,Icon  } from 'antd'
+import { Tag,Icon,Spin   } from 'antd'
 import { withRouter } from 'react-router-dom'
 // Use import
 import Valine from 'valine';
@@ -14,6 +14,7 @@ class Detail extends Component {
       tagData:[],//存文章标签
       rightData:'',//下一篇文章id
       leftData:'',//上一篇文章的id
+      loading: true
     }
   }
   componentWillMount() {
@@ -24,7 +25,8 @@ class Detail extends Component {
       res.data.content = res.data.content.rendered
       res.data.categories = res.data.categories['0']
       this.setState({
-        blog:res.data
+        blog:res.data,
+        loading: false
       })
       if(res.data.next_post_id){
         this.setState({
@@ -50,36 +52,26 @@ class Detail extends Component {
           })
         })
       }
-    })
-    new Valine({
-      el: '#vcomments' ,
-      appId: 'wNI2p4s8vWn36lxuaIjj6UeL-gzGzoHsz',
-      appKey: 'YUbtra7lMlHq7tg0ykWAUUKX',
-      notify:true, 
-      verify:true, 
-      avatar:'mp', 
-      placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
-      recordIP:true
+      new Valine({
+        el: '#vcomments' ,
+        appId: 'wNI2p4s8vWn36lxuaIjj6UeL-gzGzoHsz',
+        appKey: 'YUbtra7lMlHq7tg0ykWAUUKX',
+        notify:true, 
+        verify:true, 
+        avatar:'mp', 
+        placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
+        recordIP:true,
+        path:this.props.match.url
+      })
     })
   }
 
-  componentDidUpdate(){
-    console.log('更新了')
-  }
   componentWillReceiveProps(nextProps){
-    console.log('变化了')
-    new Valine({
-      el: '#vcomments' ,
-      appId: 'wNI2p4s8vWn36lxuaIjj6UeL-gzGzoHsz',
-      appKey: 'YUbtra7lMlHq7tg0ykWAUUKX',
-      notify:true, 
-      verify:true, 
-      avatar:'mp', 
-      placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
-      recordIP:true
-    })
-    if(nextProps.match.params.id != this.props.match.params.id){
+    if(nextProps.match.params.id !== this.props.match.params.id){
       let id = nextProps.match.params.id;
+      this.setState({
+        loading: true
+      })
       http.getJson('/api/wp-json/wp/v2/posts/' + id,'','').then( (res)=>{
         res.data.title = res.data.title.rendered
         res.data.content = res.data.content.rendered
@@ -87,7 +79,8 @@ class Detail extends Component {
         this.setState({
           blog:res.data,
           rightData:res.data.next_post_id,
-          leftData:res.data.previous_post_id
+          leftData:res.data.previous_post_id,
+          loading: false
         })
         if(res.data.tags.length>0){
             this.setState({
@@ -103,6 +96,17 @@ class Detail extends Component {
             })
           })
         }
+        new Valine({
+          el: '#vcomments' ,
+          appId: 'wNI2p4s8vWn36lxuaIjj6UeL-gzGzoHsz',
+          appKey: 'YUbtra7lMlHq7tg0ykWAUUKX',
+          notify:true, 
+          verify:true, 
+          avatar:'mp', 
+          placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
+          recordIP:true,
+          path:this.props.match.url
+        })
       })
       document.documentElement.scrollTop = document.body.scrollTop =0;
     }
@@ -115,9 +119,10 @@ class Detail extends Component {
     this.props.history.push({pathname:'/article/' + item})
   }
   render() {
-    const { blog,tagData,rightData,leftData } = this.state
+    const { blog,tagData,rightData,leftData,loading } = this.state
     return (
       <ArticleContent>
+            <Spin  tip="Loading..." style={{marginTop: '25%'}} spinning={loading}>
             {
                   leftData? 
                   <div className="post-nav-l" title="上一篇" onClick={this.previous.bind(this,leftData)}>
@@ -163,6 +168,7 @@ class Detail extends Component {
                 <div id="vcomments"></div>
                 </div>
             </div>
+            </Spin>
       </ArticleContent>
     )
   }

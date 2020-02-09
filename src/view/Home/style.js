@@ -161,9 +161,7 @@ export const SectionContent = styled.main`
     font-size: 14px;
     margin-top: -2px;
   }
-  i:not(:first-child) {
-    margin-left: 5px;
-  }
+
   .hidden-detail > span {
     visibility: hidden;
   }

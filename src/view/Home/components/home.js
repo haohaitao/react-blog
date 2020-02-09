@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import * as http from '../../../common/http';
 import { SectionContent } from '../style.js'
-import { Icon,Pagination  } from 'antd'
+import { Icon,Pagination,Spin } from 'antd'
 import { withRouter } from 'react-router-dom'
+import store from '../../../store'
+import { spinState } from '../../../store/actionCreators'
 
 class Home extends Component {
   constructor(props){
     super(props)
     this.state = {
+      loading:false,
       listData:[
         {
           title: '',
@@ -105,15 +108,18 @@ class Home extends Component {
     }
   }
   componentWillMount(){
+    store.dispatch(spinState(true))
     http.getJson('/api/wp-json/wp/v2/posts?per_page=10','','').then( (res)=> {
       if(res.status === 200){
         res.data.forEach(item => {
           item.title = item.title.rendered
           item.excerpt = item.excerpt.rendered
-        });
+        })
           this.setState({
             listData:res.data,
             total: parseInt(res.headers["x-wp-total"])
+          },()=>{
+            store.dispatch(spinState(false))
           })
       }
     })
@@ -123,7 +129,8 @@ class Home extends Component {
   }
   onChange(pageNumber) {
     this.setState({
-      page:pageNumber
+      page:pageNumber,
+      loading:true
     },()=>{
       http.getJson('/api/wp-json/wp/v2/posts?per_page=10&page=' + pageNumber,'','').then( (res)=> {
         res.data.forEach((item)=>{
@@ -132,7 +139,8 @@ class Home extends Component {
         })
         this.setState({
           listData:res.data,
-          total: parseInt(res.headers["x-wp-total"])
+          total: parseInt(res.headers["x-wp-total"]),
+          loading:false
         })
     })
     if(this.state.page === 1){
@@ -145,9 +153,10 @@ class Home extends Component {
     })
   }
   render(){
-    const { listData,total,page } = this.state
+    const { listData,total,page,loading } = this.state
     return (
             <SectionContent>
+              <Spin  tip="Loading..." style={{marginTop: '25%'}} spinning={loading}>
               {
                 listData.map((val,index)=> {
                   return(
@@ -185,6 +194,7 @@ class Home extends Component {
               }
               <div className="clear"></div>
               <Pagination style={{textAlign:'right',marginRight: '20px'}} current={page} total={total} onChange={this.onChange.bind(this)} />
+              </Spin>
             </SectionContent>
     )
   } 
