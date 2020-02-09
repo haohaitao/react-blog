@@ -174,9 +174,8 @@ class Home extends Component {
                         <div className="desc-bottom">
                           <div className="d-detail,hidden-detail">
                             <Icon type="calendar" />
-                            <span style={{fontSize: '14px',marginLeft: '5px'}}>{val.date?val.date.split('T')[0]:''}</span>
-                            <Icon type="eye" />
-                            <span style={{fontSize: '14px',marginLeft: '5px'}}>{val.pageviews}</span>
+                            <span style={{fontSize: '14px',marginLeft: '5px'}}>{val.post_date}</span>
+                            <span style={{fontSize: '14px',marginLeft: '5px'}}><span style={{marginRight: '5px'}}><Icon type="eye" /></span>{val.pageviews}</span>
                             {
                               val.total_comments!==0?
                               <div style={{display:'inline-block',marginLeft: '5px'}}>
