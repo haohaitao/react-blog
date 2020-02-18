@@ -145,7 +145,7 @@ class Detail extends Component {
                   <div className="header-info">
                     <span>发布于：{blog.date ? blog.date.split('T')['0'] + ' ' + blog.date.split('T')['1'] : '1970-01-01'}</span>
                     <span>{blog.pageviews}次浏览</span>                    
-                    <span>{blog.total_comments}条浏览</span>
+                    <span>{blog.total_comments}条评论</span>
                   </div>
                 </div>
                 <div id="blog" dangerouslySetInnerHTML={{__html:blog.content}}></div>
