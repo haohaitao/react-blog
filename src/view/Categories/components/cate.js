@@ -22,7 +22,6 @@ class Cate extends Component {
   }
   jump(val){
     this.props.history.push({pathname:'/catedetail/' + val.id})
-    console.log(val)
   }
   render() {
     const { listData } = this.state;
