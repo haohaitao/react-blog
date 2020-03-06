@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import * as http from '../common/http';
+import { withRouter } from "react-router-dom";
 import { SliderAside } from './style'
 import { Icon,Affix } from 'antd';
 
@@ -167,4 +168,4 @@ class Slider extends Component {
   }
 }
 
-export default Slider;
+export default withRouter(Slider);
