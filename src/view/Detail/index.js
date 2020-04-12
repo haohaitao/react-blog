@@ -44,12 +44,14 @@ class Detail extends Component {
           })//如果tags有内容，清空tagData
           let tempTag = []
           res.data.tags.map( (item)=> {
-          http.getJson('/api/wp-json/wp/v2/tags/' + item,'','').then( (res)=> {
-            tempTag.push(res.data)
-            this.setState({
-              tagData:tempTag
-            })
-          })
+            return(
+              http.getJson('/api/wp-json/wp/v2/tags/' + item,'','').then( (res)=> {
+                tempTag.push(res.data)
+                this.setState({
+                  tagData:tempTag
+                })
+              })
+            )
         })
       }
       new Valine({
@@ -88,12 +90,14 @@ class Detail extends Component {
             })//如果tags有内容，清空tagData
             let tempTag = []
             res.data.tags.map( (item)=> {
-            http.getJson('/api/wp-json/wp/v2/tags/' + item,'','').then( (res)=> {
-              tempTag.push(res.data)
-              this.setState({
-                tagData:tempTag
-              })
-            })
+              return(
+                http.getJson('/api/wp-json/wp/v2/tags/' + item,'','').then( (res)=> {
+                  tempTag.push(res.data)
+                  this.setState({
+                    tagData:tempTag
+                  })
+                })
+              )
           })
         }
         new Valine({
