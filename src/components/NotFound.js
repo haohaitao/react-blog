@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom'
 import pic from '../statics/imgs/404.png'
 
 class NotFound extends Component {
+  componentDidMount(){
+    document.title = '404-NotFound'
+  }
   render(){
     return (
       <MainWrapper>

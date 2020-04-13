@@ -15,6 +15,9 @@ class HomeMain extends Component {
   track(){
     this.setState(store.getState())
   }
+  componentDidMount(){
+    document.title = "郝海涛的个人网站 - Hao HaiTao's Personal Website"
+  }
   render(){
     return (
       <HomeWrapper>

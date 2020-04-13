@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import {Wrapper} from './style'
 
 class About extends Component {
+  componentDidMount(){
+    document.title = "关于我们 - 郝海涛的个人网站"
+  }
   render() {
     return (
       <Wrapper>

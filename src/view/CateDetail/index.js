@@ -10,6 +10,9 @@ class HomeMain extends Component {
       
     }
   }
+  componentDidMount(){
+    document.title = "分类详情 - 郝海涛的个人网站"
+  }
   render(){
     return (
       <CateWrapper>

@@ -16,13 +16,13 @@ function router() {
     <Router>
        <Header />
          <Switch>
-            <Route exact path="/" component={Home} />  {/*首页*/}
-            <Route exact path="/page/:page" component={Home} />  {/*首页*/}
-            <Route exact path="/article/:id" component={Article} />  {/*文章详情*/}
+            <Route exact path="/" component={Home}/>  {/*首页*/}
+            <Route exact path="/page/:page" component={Home}/>  {/*首页*/}
+            <Route exact path="/article/:id" component={Article}/>  {/*文章详情*/}
             <Route exact path="/categories" component={Categories} />  {/*分类页面*/}
             <Route exact path="/catedetail/:id" component={CategoriesDetail} />  {/*分类详情*/}
-            <Route exact path="/everyday" component={Everyday} />  {/*每日一图*/}
-            <Route exact path="/about" component={About} />  {/*关于我们*/}
+            <Route exact path="/everyday" component={Everyday}/>  {/*每日一图*/}
+            <Route exact path="/about" component={About}/>  {/*关于我们*/}
             <Route exact path="/err" component={NotFound} />{/*404页面*/}
             {/* 如果匹配到以上路由将渲染路由，否则重定向404 */}
             <Redirect to="/err" />

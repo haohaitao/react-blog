@@ -10,6 +10,9 @@ class Categories extends Component {
       listData:[]
     }
   }
+  componentDidMount(){
+    document.title = "分类 - 郝海涛的个人网站"
+  }
   render() {
     return (
       <MainWrapper>

@@ -115,7 +115,9 @@ class Detail extends Component {
       document.documentElement.scrollTop = document.body.scrollTop =0;
     }
   }
-
+  componentDidMount(){
+    document.title = '文章详情 - 郝海涛的个人网站'
+  }
   previous(item){
     this.props.history.push({pathname:'/article/' + item})
   }

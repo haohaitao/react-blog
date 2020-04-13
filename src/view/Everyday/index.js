@@ -10,6 +10,7 @@ class Everyday extends Component {
     }
   }
   componentDidMount(){
+    document.title = "每日一图 - 郝海涛的个人网站"
     http.getJson('api/wp-json/wp/v2/pages/994','','').then( (res)=> {
       if(res.status === 200){
         res.data.content = res.data.content.rendered
