@@ -11,17 +11,15 @@ class Footer extends Component {
   render() {
     return (
         <FooterContent>
-          <div className="container">
-            <span className="footer-flot sec-desc-footer">
+            <p>
               <a
                 href="http://www.beian.miit.gov.cn/"
                 target="_blank"
                 rel="noopener noreferrer"
               >豫ICP备17023037号-1</a>
-            </span>
-            <span className="footer-flot sec-footer-flot">｜</span>
-            <p className="link-git">
-              <span className="name">
+            </p>
+            <p>
+              <span>
                 Copyright © 2019-2020&nbsp;版权所有&nbsp;
               </span>
               <span className="github">
@@ -37,7 +35,6 @@ class Footer extends Component {
                 </div>
               </div>
             </BackTop>
-          </div>
         </FooterContent>
     )
   }

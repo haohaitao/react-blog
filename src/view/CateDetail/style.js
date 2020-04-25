@@ -14,7 +14,7 @@ export const CateDetailWrapper = styled.main`
   margin-bottom: 70px;
   float:left;
   article {
-    width: 700px;
+    max-width: 700px;
     height: 193px;
     position: relative;
     border-radius: 5px;

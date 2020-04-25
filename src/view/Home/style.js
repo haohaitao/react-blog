@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const HomeWrapper = styled.div`
-  width:1050px;
+  max-width:1050px;
   margin:0 auto;
   margin-top:90px;
 `
@@ -13,7 +13,7 @@ export const SectionContent = styled.main`
   margin-bottom: 70px;
   float:left;
   article {
-    width: 700px;
+    max-width: 700px;
     height: 193px;
     position: relative;
     border-radius: 5px;

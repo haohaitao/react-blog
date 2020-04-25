@@ -73,11 +73,7 @@ export const HeaderWrapper = styled.header`
 export const FooterContent = styled.footer`
     margin-top:35px;
     clear:both;
-    footer {
-      margin-top: 16px;
-      height: 120px;
-      background: rgba(255, 255, 255, 0.5);
-    }
+    text-align: center;
       .container {
         width: 1080px;
         min-width: 100%;
@@ -88,51 +84,51 @@ export const FooterContent = styled.footer`
         position: relative;
         line-height: 26px;
       }
-        .footer-flot {
-          position: relative;
-          color: #eee;
-          top: 50%;
-          transform: translateY(-50%);
-          display: inline-block;
-        }
-        .link-git {
-          transform: translateY(-50%);
-          display: inline-block;
-        }
-        a{
-          color:#555;
-        }
-        .ant-back-top{
-          -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-          margin: 0;
-          padding: 0;
-          color: rgba(0, 0, 0, 0.65);
-          font-size: 14px;
-          font-variant: tabular-nums;
-          line-height: 1.5;
-          list-style: none;
-          -webkit-font-feature-settings: 'tnum';
-          font-feature-settings: 'tnum';
-          position: fixed;
-          right: 100px;
-          bottom: 50px;
-          z-index: 10;
-          width: 40px;
-          height: 40px;
-          cursor: pointer;
-        }
-        .ant-back-top-inner{
-          width: 40px;
-          height: 40px;
-          overflow: hidden;
-          color: #fff;
-          text-align: center;
-          background-color: rgba(0, 0, 0, 0.45);
-          border-radius: 20px;
-          -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-          transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-        }
+      .footer-flot {
+        position: relative;
+        color: #eee;
+        top: 50%;
+        transform: translateY(-50%);
+        display: inline-block;
+      }
+      .link-git {
+        transform: translateY(-50%);
+        display: inline-block;
+      }
+      a{
+        color:#555;
+      }
+      .ant-back-top{
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        color: rgba(0, 0, 0, 0.65);
+        font-size: 14px;
+        font-variant: tabular-nums;
+        line-height: 1.5;
+        list-style: none;
+        -webkit-font-feature-settings: 'tnum';
+        font-feature-settings: 'tnum';
+        position: fixed;
+        right: 100px;
+        bottom: 50px;
+        z-index: 10;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+      }
+      .ant-back-top-inner{
+        width: 40px;
+        height: 40px;
+        overflow: hidden;
+        color: #fff;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.45);
+        border-radius: 20px;
+        -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+        transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+      }
 `
 
 export const MainWrapper = styled.div`
