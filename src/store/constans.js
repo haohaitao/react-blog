@@ -1,1 +1,0 @@
-export const SPIN_State =  'spinState'

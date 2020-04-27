@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const ArticleContent = styled.article`
     animation: fadeIn 0.6s linear;
-    width: 700px;
+    max-width: 700px;
     padding: 0 25px 30px;
     margin: 0 auto;
     background-color: #fff;

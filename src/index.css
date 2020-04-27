@@ -1,6 +1,3 @@
-#root{
-  /* max-width: 1000px; */
-}
   @media screen and (max-width: 1000px) {
 	aside {
 		display: none;
@@ -18,6 +15,12 @@
 	.section-article article {
 	  margin-left: 30px !important;
 	  margin-right: 30px !important;
+	}
+  }
+  /* 分辨率大于768px隐藏移动端菜单 */
+  @media screen and (min-width: 768px) {
+	.mobile_menu {
+		display: none;
 	}
   }
   
@@ -42,6 +45,9 @@
 	.detail-article .contentList{
 	  padding: 0 5px 15px 8px;
 	}
+	.desc {
+		width: 62% !important;
+	}
   }
   
   @media screen and (max-width: 647px) {
@@ -58,27 +64,43 @@
   
   @media screen and (max-width: 600px) {
 	/* 头部菜单收起 */
-	.head-page .home {
+	.home-left {
 	  float: none !important;
 	  text-align: center;
 	}
 	.desc {
-		width:60% !important;
+		width:100% !important;
+	}
+	.title {
+		height: 25px;
+	}
+	.excerpt {
+		height: 55px !important;
+	}
+	.desc-bottom {
+		width: auto !important;
+		float: right;
+	}
+	.bg-cover {
+		display: none;
+	}
+	article {
+		height: 150px !important;
+	}
+	.ant-back-top {
+		right: 50px !important;
+		bottom: 80px !important;
 	}
 	.nav-right {
 		display: none;
 	}
-	.home-left {
-		float: none !important;
-		text-align: center;
-	}
 	.wrapper .tag_title{
 	  font-size: 24px !important;
 	}
-	.head-page .nav-coll-menu{
+	.nav-coll-menu{
 	  display: block !important;
 	}
-	.head-page .nav {
+	.nav {
 	  position: absolute !important;
 	  top: 0;
 	  right: 6px;
@@ -93,9 +115,6 @@
 	/* 时间隐藏 */
 	.detail-article .art-header .tag-time {
 	  display: none;
-	}
-	.desc {
-		width: 52% !important;
 	}
 	.detail-article .art-header .header-tag {
 	  width: 100% !important;

@@ -4,24 +4,17 @@ import Home from './components/home'
 import Slider from '../../components/Slider'
 import {Spin } from 'antd'
 import store from '../../store';
+import { connect } from 'react-redux'
 
 class HomeMain extends Component {
-  constructor(props){
-    super(props)
-    this.state = (store.getState())
-    this.track = this.track.bind(this)
-    store.subscribe(this.track)
-  }
-  track(){
-    this.setState(store.getState())
-  }
   componentDidMount(){
     document.title = "郝海涛的个人网站 - Hao HaiTao's Personal Website"
   }
   render(){
+    const { loading } = this.props;
     return (
       <HomeWrapper>
-        <Spin  tip="Loading..." style={{marginTop: '25%'}} spinning={store.getState().state}>
+        <Spin  tip="Loading..." style={{marginTop: '25%'}} spinning={loading}>
           <Home/>
           <Slider/>
         </Spin>
@@ -30,4 +23,11 @@ class HomeMain extends Component {
   } 
 }
 
-export default HomeMain;
+const mapState = state => ({
+  loading: state.home_loading.loading_state
+})
+
+const mapDispatch = dispatch => ({
+})
+
+export default connect(mapState, mapDispatch)(HomeMain);

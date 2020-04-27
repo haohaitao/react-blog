@@ -4,13 +4,13 @@ import { SectionContent } from '../style.js'
 import { Icon,Pagination,Spin } from 'antd'
 import { withRouter } from 'react-router-dom'
 import store from '../../../store'
-import { spinState } from '../../../store/actionCreators'
+import { connect } from 'react-redux'
+import { spinState } from '../store/actionCreators'
 
 class Home extends Component {
   constructor(props){
     super(props)
     this.state = {
-      loading:false,
       listData:[
         {
           title: '',
@@ -128,9 +128,9 @@ class Home extends Component {
     this.props.history.push({pathname:'/article/' + val.id})
   }
   onChange(pageNumber) {
+    this.props.change_loading(true) //改变加载状态
     this.setState({
       page:pageNumber,
-      loading:true
     },()=>{
       http.getJson('/api/wp-json/wp/v2/posts?per_page=10&page=' + pageNumber,'','').then( (res)=> {
         res.data.forEach((item)=>{
@@ -140,7 +140,8 @@ class Home extends Component {
         this.setState({
           listData:res.data,
           total: parseInt(res.headers["x-wp-total"]),
-          loading:false
+        },()=> {
+          this.props.change_loading(false) //改变加载状态
         })
     })
     if(this.state.page === 1){
@@ -153,16 +154,14 @@ class Home extends Component {
     })
   }
   render(){
-    const { listData,total,page,loading } = this.state
+    const { listData,total,page } = this.state
+    const { loading } = this.props;
     return (
             <SectionContent>
-              <Spin  tip="Loading..." style={{marginTop: '25%'}} spinning={loading}>
               {
                 listData.map((val,index)=> {
                   return(
                     <article  key={index}>
-                      <div className="bg-container">
-                      </div>
                         <div className="bg-cover" onClick={this.jump.bind(this,val)}>
                           <div className="bg-img"
                             style={{background: `url(${val.content_first_image}) 100% 100% / 100% 100%`}}
@@ -193,10 +192,19 @@ class Home extends Component {
               }
               <div className="clear"></div>
               <Pagination style={{textAlign:'right',marginRight: '20px'}} current={page} total={total} onChange={this.onChange.bind(this)} />
-              </Spin>
             </SectionContent>
     )
   } 
 }
 
-export default withRouter(Home);
+const mapState = state => ({
+  loading: state.home_loading.loading_state
+})
+
+const mapDispatch = dispatch => ({
+  change_loading(value) {
+    dispatch(spinState(value))
+  }
+})
+
+export default withRouter(connect(mapState, mapDispatch)(Home));

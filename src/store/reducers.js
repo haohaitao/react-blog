@@ -1,14 +1,17 @@
-import * as constants  from './constans'
+import { combineReducers } from 'redux'
 
-const stateDefault = {
-  state:true,
-}
+//移动端菜单是否关闭
+import { reducer as header_menu } from '../components/store';
 
-export default (state=stateDefault,action)=>{
-  if(action.type === constants.SPIN_State){
-    const newState = JSON.parse(JSON.stringify(state))//深拷贝state
-    newState.state = action.value
-    return newState
-  }
-  return state;
-}
+//首页加载
+import { reducer as home_request } from '../view/Home/store';
+const reducer_app = combineReducers({
+  //移动端头部
+  mobile_menu: header_menu,
+
+  //首页加载
+  home_loading: home_request,
+})
+
+
+export default reducer_app;

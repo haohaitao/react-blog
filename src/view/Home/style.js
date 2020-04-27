@@ -17,7 +17,7 @@ export const SectionContent = styled.main`
     height: 193px;
     position: relative;
     border-radius: 5px;
-    background: rgba(255, 255, 255, 0.5);
+    background: #fff;
     box-sizing: border-box;
     margin: 20px;
     box-shadow: 0 2px 9px 0 rgba(0, 0, 0, 0.08);
@@ -124,7 +124,6 @@ export const SectionContent = styled.main`
   .desc {
     width: 70%;
     height: 110px;
-    background: #fff;
     padding: 7px 15px 10px;
     box-sizing: border-box;
     float: left;

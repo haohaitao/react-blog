@@ -9,33 +9,43 @@ export const HeaderWrapper = styled.header`
   top: 0;
   z-index: 1;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
-*{
-  margin: 0;
-	padding: 0;
-	outline: none;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	-khtml-user-select: none;
-	user-select: none;
-}
   .container {
-    width: 1080px;
-    min-width: 1080px;
+    max-width: 1080px;
     margin: 0 auto;
-    height: 100%;
+    line-height: 70px;
     color: #3c3c3c;
   }
-    @media screen and (max-width: 1000px) {
-      .container{
-        width: 85%;
-      }
-    }
-    @media screen and (min-width: 1000px) {
-      .container{
-        width: 1080px;
-      }
-    }
+  .mobile_menu_block {
+    display:block;
+    position: absolute;
+		top: 3px;
+		line-height: 70px;
+		left: 20px;
+    font-size: 25px;
+    transform: scale(1.5)
+    transition: all .8s ease-in-out;
+  }
+  .mobile_menu_none {
+    display:none;
+    transform: scale(1.5)
+    transition: all .8s ease-in-out;
+  }
+  .mobile_menu_list {
+    width: 120px;
+    background: #fff;
+    margin: 0 auto;
+    overflow: auto;
+    padding-left: 0;
+    line-height: 3;
+    transform: scale(1.5)
+    transition: all .8s ease-in-out;
+  }
+  .mobile_menu_list li{
+    float:none !important;
+  }
+  .home-left {
+    float:left;
+  }
     a {
       color: #3c3c3c;
       text-decoration: none;
@@ -75,8 +85,7 @@ export const FooterContent = styled.footer`
     clear:both;
     text-align: center;
       .container {
-        width: 1080px;
-        min-width: 100%;
+        max-width: 1080px;
         margin: 0 auto;
         height: 100%;
         text-align: center;
