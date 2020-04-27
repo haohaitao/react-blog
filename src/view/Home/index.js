@@ -3,7 +3,6 @@ import { HomeWrapper } from './style'
 import Home from './components/home'
 import Slider from '../../components/Slider'
 import {Spin } from 'antd'
-import store from '../../store';
 import { connect } from 'react-redux'
 
 class HomeMain extends Component {

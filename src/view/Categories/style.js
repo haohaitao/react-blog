@@ -3,12 +3,11 @@ import styled from 'styled-components'
 export const CateWrapper = styled.div`
   margin-top:20px;
   height: 740px;
-  width: 700px;
   float: left;
   margin-right: 15px;
   ul{
     list-style-type: none;
-    width: 700px;
+    max-width: 700px;
   }
   li{
     height: 45px;
@@ -35,6 +34,7 @@ export const CateWrapper = styled.div`
   }
   section{
     border: 1px solid #ddd;
+    width: 700px;
     border-radius: 2px;
     box-shadow: 0 1px 1px rgba(0,0,0,0.04);
     margin-bottom:10px;
@@ -65,7 +65,7 @@ export const CateWrapper = styled.div`
 `
 
 export const MainWrapper = styled.div`
-  width: 1100px;
+  max-width: 1100px;
   margin:0 auto;
   height: 820px;
   margin-top: 90px;

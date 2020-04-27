@@ -18,8 +18,14 @@
 	}
   }
   /* 分辨率大于768px隐藏移动端菜单 */
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 600px) {
 	.mobile_menu {
+		display: none;
+	}
+	.mobile_cate_none {
+		display: block;
+	}
+	.mobile_cate_block {
 		display: none;
 	}
   }
@@ -28,6 +34,15 @@
 	/* 每行显示两个博客时，中间空格减小 */
 	.section-article {
 	  width: 640px;
+	}
+	.mobile_cate_none {
+		display: none;
+	}
+	.mobile_cate_block {
+		display: block;
+	}
+	.mobile_everyday {
+		height: 850px !important;
 	}
 	.section-article article {
 	  margin-left: 20px !important;

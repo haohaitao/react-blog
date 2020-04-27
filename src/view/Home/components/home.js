@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import * as http from '../../../common/http';
 import { SectionContent } from '../style.js'
-import { Icon,Pagination,Spin } from 'antd'
+import { Icon,Pagination } from 'antd'
 import { withRouter } from 'react-router-dom'
 import store from '../../../store'
 import { connect } from 'react-redux'
@@ -155,7 +155,6 @@ class Home extends Component {
   }
   render(){
     const { listData,total,page } = this.state
-    const { loading } = this.props;
     return (
             <SectionContent>
               {

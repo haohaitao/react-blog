@@ -23,7 +23,7 @@ class Everyday extends Component {
   render(){
     const { val } = this.state;
     return (
-      <MainWrapper>
+      <MainWrapper className="mobile_everyday">
         <article className="excerpt" dangerouslySetInnerHTML={{__html:val.content}}></article>
       </MainWrapper>
     )

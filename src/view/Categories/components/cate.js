@@ -26,8 +26,23 @@ class Cate extends Component {
   render() {
     const { listData } = this.state;
     return (
-      <CateWrapper>
-        <section>
+      <CateWrapper className="mobile_style">
+        <section className="mobile_cate_none">
+          <h3 className="hot">
+            <span style={{ paddingLeft: '8px' }}>分类目录</span>
+          </h3>
+          <ul>
+            {
+              listData.map( (ele)=>{
+                return(
+                  <li key={ele.id} onClick={this.jump.bind(this,ele)}>#&nbsp;&nbsp;<span className="categoryName">{ele.name}&nbsp;&nbsp;[{ele.count}]</span></li>
+                )
+              })
+            }
+          </ul>
+        </section>
+
+        <section className="mobile_cate_block" style={{maxWidth:'350px'}}>
           <h3 className="hot">
             <span style={{ paddingLeft: '8px' }}>分类目录</span>
           </h3>
