@@ -38,8 +38,15 @@
 	.mobile_cate_none {
 		display: none;
 	}
+	.mobile_style {
+		width: 100%;
+	}
 	.mobile_cate_block {
 		display: block;
+		width: 100% !important;
+	}
+	.mobile_cate_list {
+		float: none !important;
 	}
 	.mobile_everyday {
 		height: 850px !important;
@@ -99,7 +106,7 @@
 	.bg-cover {
 		display: none;
 	}
-	article {
+	.home_article {
 		height: 150px !important;
 	}
 	.ant-back-top {

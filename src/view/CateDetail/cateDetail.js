@@ -149,7 +149,7 @@ class CateDetail extends Component {
   render() {
     const { listData,page,total,category_name } = this.state;
     return (
-      <CateDetailWrapper>
+      <CateDetailWrapper className="mobile_cate_list">
         <section className="artList-by-type">
           <p>归类在<span className="type-title">{category_name ? category_name : '加载中..'}</span>下的文章</p> 
           <p>共有<span className="type-total">{total}</span>篇</p>

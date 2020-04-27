@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { MainWrapper } from './style'
-import Cate from './components/cate'
-import Slider from '../../components/Slider'
+import { MainWrapper } from './style';
+import Cate from './components/cate';
+import Slider from '../../components/Slider';
+import { connect } from 'react-redux';
+import * as actionCreators from '../../components/store/actionCreators';
 
 class Categories extends Component {
   constructor(props) {
@@ -21,6 +23,21 @@ class Categories extends Component {
       </MainWrapper>
     );
   }
+
+  componentWillMount(){
+    const { menu_changeState } = this.props;
+    menu_changeState();
+  }
+
 }
 
-export default Categories;
+const mapState = state => ({
+})
+
+const mapDispatch = dispatch => ({
+  menu_changeState(value){
+      dispatch(actionCreators.is_MenuState(value) )
+  }
+})
+
+export default connect(mapState, mapDispatch)(Categories);

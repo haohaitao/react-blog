@@ -4,6 +4,7 @@ import Home from './components/home'
 import Slider from '../../components/Slider'
 import {Spin } from 'antd'
 import { connect } from 'react-redux'
+import * as actionCreators from '../../components/store/actionCreators';
 
 class HomeMain extends Component {
   componentDidMount(){
@@ -20,6 +21,12 @@ class HomeMain extends Component {
       </HomeWrapper>
     )
   } 
+
+  componentWillMount(){
+    const { menu_changeState } = this.props;
+    menu_changeState();
+  }
+
 }
 
 const mapState = state => ({
@@ -27,6 +34,9 @@ const mapState = state => ({
 })
 
 const mapDispatch = dispatch => ({
+  menu_changeState(value){
+      dispatch(actionCreators.is_MenuState(value) )
+  }
 })
 
 export default connect(mapState, mapDispatch)(HomeMain);

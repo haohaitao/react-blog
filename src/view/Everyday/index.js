@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { MainWrapper } from './style'
 import * as http from '../../common/http';
+import { connect } from 'react-redux';
+import * as actionCreators from '../../components/store/actionCreators'
 
 class Everyday extends Component {
   constructor(props){
@@ -28,6 +30,22 @@ class Everyday extends Component {
       </MainWrapper>
     )
   } 
+
+  componentWillMount(){
+    const { menu_changeState } = this.props;
+    menu_changeState();
+  }
+
 }
 
-export default Everyday;
+const mapState = state => ({
+})
+
+const mapDispatch = dispatch => ({
+  menu_changeState(value){
+      dispatch(actionCreators.is_MenuState(value) )
+  }
+})
+
+
+export default connect(mapState, mapDispatch)(Everyday);

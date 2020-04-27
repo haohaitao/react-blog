@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const CateWrapper = styled.div`
-  width:1050px;
+  max-width:1050px;
   margin:0 auto;
   margin-top:90px;
 `

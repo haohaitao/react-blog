@@ -29,7 +29,7 @@ class Cate extends Component {
       <CateWrapper className="mobile_style">
         <section className="mobile_cate_none">
           <h3 className="hot">
-            <span style={{ paddingLeft: '8px' }}>分类目录</span>
+            <span className="cate_title">分类目录</span>
           </h3>
           <ul>
             {
@@ -42,9 +42,9 @@ class Cate extends Component {
           </ul>
         </section>
 
-        <section className="mobile_cate_block" style={{maxWidth:'350px'}}>
+        <section className="mobile_cate_block">
           <h3 className="hot">
-            <span style={{ paddingLeft: '8px' }}>分类目录</span>
+            <span className="cate_title">分类目录</span>
           </h3>
           <ul>
             {

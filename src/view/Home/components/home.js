@@ -160,7 +160,7 @@ class Home extends Component {
               {
                 listData.map((val,index)=> {
                   return(
-                    <article  key={index}>
+                    <article  key={index} className="home_article">
                         <div className="bg-cover" onClick={this.jump.bind(this,val)}>
                           <div className="bg-img"
                             style={{background: `url(${val.content_first_image}) 100% 100% / 100% 100%`}}

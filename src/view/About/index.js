@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import {Wrapper} from './style'
+import {Wrapper} from './style';
+import { connect } from 'react-redux';
+import * as actionCreators from '../../components/store/actionCreators';
 
 class About extends Component {
   componentDidMount(){
@@ -26,5 +28,20 @@ class About extends Component {
   </Wrapper>
     )
   }
+
+  componentWillMount(){
+    const { menu_changeState } = this.props;
+    menu_changeState();
+  }
 }
-export default About;
+
+const mapState = state => ({
+})
+
+const mapDispatch = dispatch => ({
+  menu_changeState(value){
+      dispatch(actionCreators.is_MenuState(value) )
+  }
+})
+
+export default connect(mapState, mapDispatch)(About);

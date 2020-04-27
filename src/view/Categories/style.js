@@ -9,6 +9,9 @@ export const CateWrapper = styled.div`
     list-style-type: none;
     max-width: 700px;
   }
+  .cate_title {
+    padding-left:8px;
+  }
   li{
     height: 45px;
     line-height: 45px;
