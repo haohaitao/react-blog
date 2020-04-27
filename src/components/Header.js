@@ -6,21 +6,6 @@ import { Link } from 'react-router-dom';
 import * as actionCreators from './store/actionCreators'
 
 class Header extends Component {
-  state = {
-    mobile_menu:false,
-  }
-  //打开移动端菜单
-  open_menu(){
-    this.setState({
-      mobile_menu:true
-    })
-  }
-  //关闭移动菜单
-  close_menu(){
-    this.setState({
-      mobile_menu:false
-    })
-  }
   render() {
     const { menu_state } = this.props;
     const { menu_changeState } = this.props
@@ -58,10 +43,10 @@ class Header extends Component {
           </div>
           {/* 移动端菜单 */}
           <div className={menu_state ? 'mobile_menu_none' : 'mobile_menu_block'}>
-              <Icon type="menu" className="mobile_menu" onClick={() => menu_changeState}/>
+              <Icon type="menu" className="mobile_menu" onClick={() => menu_changeState(true)}/>
           </div>
           <div className={menu_state ? 'mobile_menu_block' : 'mobile_menu_none'}>
-              <Icon type="rollback" onClick={this.close_menu.bind(this)}/>
+              <Icon type="rollback" onClick={() => menu_changeState(false)}/>
               <ul className="mobile_menu_list">
                   <li>
                       <Link to="/">
@@ -97,8 +82,8 @@ const mapState = state => ({
 })
 
 const mapDispatch = dispatch => ({
-  menu_changeState(){
-      dispatch(actionCreators.is_MenuState(true) )
+  menu_changeState(value){
+      dispatch(actionCreators.is_MenuState(value) )
   }
 })
 
