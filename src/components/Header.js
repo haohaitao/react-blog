@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { HeaderWrapper } from './style';
-import { connect } from 'react-redux';
 import { Icon } from 'antd';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import * as actionCreators from './store/actionCreators'
 
@@ -14,7 +14,11 @@ class Header extends Component {
           <div className="container">
             <div className="home-left">
               <i className="el-icon-cherry" />
-              <Link to="/">个人主页</Link>
+              <Link to="/">
+                <span className="title_left">H</span>
+                <span className="title_middle">A</span>
+                <span className="title_right">O</span>
+              </Link>
             </div>
             <div className="nav-right">
               <ul className="nav-far">
@@ -43,11 +47,11 @@ class Header extends Component {
           </div>
           {/* 移动端菜单 */}
           <div className={menu_state ? 'mobile_menu_none' : 'mobile_menu_block'}>
-              <Icon type="menu" className="mobile_menu" onClick={() => menu_changeState(true)}/>
+              <Icon type="menu" className="mobile_menu animated jackInTheBox" onClick={() => menu_changeState(true)}/>
           </div>
           <div className={menu_state ? 'mobile_menu_block' : 'mobile_menu_none'}>
-              <Icon type="rollback" onClick={() => menu_changeState(false)}/>
-              <ul className="mobile_menu_list">
+              <Icon type="rollback" className="animated swing" onClick={() => menu_changeState(false)}/>
+              <ul className="mobile_menu_list animated swing">
                   <li>
                       <Link to="/">
                       首页

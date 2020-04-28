@@ -106,6 +106,10 @@
 	.bg-cover {
 		display: none;
 	}
+	header {
+		background: #e0c18c !important;
+		opacity: 1 !important;
+	}
 	.home_article {
 		height: 150px !important;
 	}
@@ -168,6 +172,12 @@
 }
 body{
   background:url(./statics//imgs/bg_01.jpg)
+}
+.home-left>a {
+	color: #fff;
+}
+.nav-right a {
+	color: #fff;
 }
 .dp-highlighter {
 	background: #fff;

@@ -2,7 +2,8 @@ import styled from 'styled-components'
 import bg from '../statics/imgs/bg.png'
 
 export const HeaderWrapper = styled.header`
-  background: #fff;
+  background: #e0c18c;
+  opacity: .7;
   width: 100%;
   height: 70px;
   position: fixed;
@@ -10,10 +11,19 @@ export const HeaderWrapper = styled.header`
   z-index: 1;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
   .container {
-    max-width: 1080px;
+    max-width: 1000Px;
     margin: 0 auto;
     line-height: 70px;
     color: #3c3c3c;
+  }
+  .title_left {
+    color:red;
+  }
+  .title_middle {
+    color:yellow;
+  }
+  .title_right {
+    color:blue;
   }
   .mobile_menu_block {
     display:block;
@@ -22,13 +32,9 @@ export const HeaderWrapper = styled.header`
 		line-height: 70px;
 		left: 20px;
     font-size: 25px;
-    transform: scale(1.5)
-    transition: all .8s ease-in-out;
   }
   .mobile_menu_none {
     display:none;
-    transform: scale(1.5)
-    transition: all .8s ease-in-out;
   }
   .mobile_menu_list {
     width: 120px;
@@ -37,8 +43,6 @@ export const HeaderWrapper = styled.header`
     overflow: auto;
     padding-left: 0;
     line-height: 3;
-    transform: scale(1.5)
-    transition: all .8s ease-in-out;
   }
   .mobile_menu_list li{
     float:none !important;
