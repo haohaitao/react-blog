@@ -10,7 +10,7 @@ class About extends Component {
   render() {
     return (
       <Wrapper>
-      <div className="content">
+      <div className="content animated rollIn">
           <p><img src="https://www.haoht123.com/wp-content/uploads/2019/04/about20190403.jpg" alt="关于"  width="690" height="388" srcSet="https://www.haoht123.com/wp-content/uploads/2019/04/about20190403.jpg 690w, https://www.haoht123.com/wp-content/uploads/2019/04/about20190403-300x169.jpg 300w" sizes="(max-width: 690px) 100vw, 690px" /></p>
           <h2>关于本站</h2>
           <p>主要用到的技术：create-react-app + react + react-router-dom + redux + axios + antd</p>

@@ -25,7 +25,7 @@ class Everyday extends Component {
   render(){
     const { val } = this.state;
     return (
-      <MainWrapper className="mobile_everyday">
+      <MainWrapper className="mobile_everyday animated rollIn">
         <article className="excerpt" dangerouslySetInnerHTML={{__html:val.content}}></article>
       </MainWrapper>
     )

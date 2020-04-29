@@ -26,7 +26,7 @@ class Cate extends Component {
   render() {
     const { listData } = this.state;
     return (
-      <CateWrapper className="mobile_style">
+      <CateWrapper className="mobile_style animated rollIn">
         <section className="mobile_cate_none">
           <h3 className="hot">
             <span className="cate_title">分类目录</span>
