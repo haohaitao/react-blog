@@ -10,7 +10,7 @@ const reducer_app = combineReducers({
   mobile_menu: header_menu,
 
   //首页加载
-  home_loading: home_request,
+  home: home_request,
 })
 
 

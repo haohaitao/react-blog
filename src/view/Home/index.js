@@ -30,7 +30,7 @@ class HomeMain extends Component {
 }
 
 const mapState = state => ({
-  loading: state.home_loading.loading_state
+  loading: state.home.loading_state
 })
 
 const mapDispatch = dispatch => ({

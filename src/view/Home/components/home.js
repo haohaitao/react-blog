@@ -1,173 +1,28 @@
 import React, { Component } from 'react';
-import * as http from '../../../common/http';
 import { SectionContent } from '../style.js'
 import { Icon,Pagination } from 'antd'
 import { withRouter } from 'react-router-dom'
-import store from '../../../store'
 import { connect } from 'react-redux'
-import { spinState } from '../store/actionCreators'
+import * as action from '../store/actionCreators'
 
 class Home extends Component {
-  constructor(props){
-    super(props)
-    this.state = {
-      listData:[
-        {
-          title: '',
-          excerpt: 'Loading...',
-          id: '',
-          content_first_image: '',
-          date: '1970-01-01',
-          pageviews: 0,
-          total_comments: 0,
-        },
-        {
-          title: '',
-          excerpt: 'Loading...',
-          id: '',
-          content_first_image: '',
-          date: '1970-01-01',
-          pageviews: 0,
-          total_comments: 0,
-        },
-        {
-          title: '',
-          excerpt: 'Loading...',
-          id: '',
-          content_first_image: '',
-          date: '1970-01-01',
-          pageviews: 0,
-          total_comments: 0,
-        },
-        {
-          title: '',
-          excerpt: 'Loading...',
-          id: '',
-          content_first_image: '',
-          date: '1970-01-01',
-          pageviews: 0,
-          total_comments: 0,
-        },
-        {
-          title: '',
-          excerpt: 'Loading...',
-          id: '',
-          content_first_image: '',
-          date: '1970-01-01',
-          pageviews: 0,
-          total_comments: 0,
-        },
-        {
-          title: '',
-          excerpt: 'Loading...',
-          id: '',
-          content_first_image: '',
-          date: '1970-01-01',
-          pageviews: 0,
-          total_comments: 0,
-        },
-        {
-          title: '',
-          excerpt: 'Loading...',
-          id: '',
-          content_first_image: '',
-          date: '1970-01-01',
-          pageviews: 0,
-          total_comments: 0,
-        },
-        {
-          title: '',
-          excerpt: 'Loading...',
-          id: '',
-          content_first_image: '',
-          date: '1970-01-01',
-          pageviews: 0,
-          total_comments: 0,
-        },
-        {
-          title: '',
-          excerpt: 'Loading...',
-          id: '',
-          content_first_image: '',
-          date: '1970-01-01',
-          pageviews: 0,
-          total_comments: 0,
-        },
-        {
-          title: '',
-          excerpt: 'Loading...',
-          id: '',
-          content_first_image: '',
-          date: '1970-01-01',
-          pageviews: 0,
-          total_comments: 0,
-        }
-      ], //保存拿到的文章数据
-      total:0, //分页数量
-      page:1,//默认第一页 
-    }
-  }
-  componentWillMount(){
-    store.dispatch(spinState(true))
-    http.getJson('/api/wp-json/wp/v2/posts?per_page=10','','').then( (res)=> {
-      if(res.status === 200){
-        res.data.forEach(item => {
-          item.title = item.title.rendered
-          item.excerpt = item.excerpt.rendered
-        })
-          this.setState({
-            listData:res.data,
-            total: parseInt(res.headers["x-wp-total"])
-          },()=>{
-            store.dispatch(spinState(false))
-          })
-      }
-    })
-  }
-  jump(val){
-    this.props.history.push({pathname:'/article/' + val.id})
-  }
-  onChange(pageNumber) {
-    this.props.change_loading(true) //改变加载状态
-    this.setState({
-      page:pageNumber,
-    },()=>{
-      http.getJson('/api/wp-json/wp/v2/posts?per_page=10&page=' + pageNumber,'','').then( (res)=> {
-        res.data.forEach((item)=>{
-          item.title = item.title.rendered
-          item.excerpt = item.excerpt.rendered
-        })
-        this.setState({
-          listData:res.data,
-          total: parseInt(res.headers["x-wp-total"]),
-        },()=> {
-          this.props.change_loading(false) //改变加载状态
-        })
-    })
-    if(this.state.page === 1){
-      this.props.history.push('/');
-      document.documentElement.scrollTop = document.body.scrollTop =0;
-    }else{
-      this.props.history.push('/page/'+ this.state.page);
-      document.documentElement.scrollTop = document.body.scrollTop =0;
-    }
-    })
-  }
+
   render(){
-    const { listData,total,page } = this.state
+    const { listData,total,page } = this.props
+    const { onChange, history, jump } = this.props
     return (
             <SectionContent>
               {
                 listData.map((val,index)=> {
                   return(
                     <article  key={index} className="home_article">
-                        <div className="bg-cover" onClick={this.jump.bind(this,val)}>
+                        <div className="bg-cover" onClick={()=> jump(history, val)}>
                           <div className="bg-img"
                             style={{background: `url(${val.content_first_image}) 100% 100% / 100% 100%`}}
                           ></div>
                         </div>
                       <div className="desc">
-                          <p className="title" title={val.title} onClick={this.jump.bind(this,val)}>{val.title}</p>
+                          <p className="title" title={val.title} onClick={()=> jump(history, val)}>{val.title}</p>
                           <p className="excerpt" dangerouslySetInnerHTML={{__html:val.excerpt}}></p>
                         <div className="desc-bottom">
                           <div className="d-detail,hidden-detail">
@@ -190,19 +45,45 @@ class Home extends Component {
                 })
               }
               <div className="clear"></div>
-              <Pagination style={{textAlign:'right',marginRight: '20px'}} current={page} total={total} onChange={this.onChange.bind(this)} />
+              <Pagination style={{textAlign:'right',marginRight: '20px'}} current={page} total={total} onChange={(pageNumber)=>onChange(pageNumber,history)} />
             </SectionContent>
     )
+  }
+  componentWillMount(){
+    const { get_data } = this.props;
+    get_data(); //获取数据
   } 
 }
 
 const mapState = state => ({
-  loading: state.home_loading.loading_state
+  loading: state.home.loading_state,
+  listData: state.home.listData,
+  total: state.home.total,
+  page: state.home.page,
 })
 
 const mapDispatch = dispatch => ({
   change_loading(value) {
-    dispatch(spinState(value))
+    dispatch(action.spinState(value))
+  },
+  //获取数据
+  get_data(){
+    dispatch(action.getData())
+  },
+  //分页
+  onChange(page,history){
+    dispatch(action.change_page(page))
+    if(page === 1){
+      history.push('/');
+      document.documentElement.scrollTop = document.body.scrollTop =0;
+    }else{
+      history.push('/page/'+ page);
+      document.documentElement.scrollTop = document.body.scrollTop =0;
+    }
+  },
+  //进入详情
+  jump(history, val){
+    history.push({pathname:'/article/' + val.id})
   }
 })
 

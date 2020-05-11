@@ -1,1 +1,2 @@
-export const SPIN_State =  'home/spinState'
+export const SPIN_STATE =  'home/spin_state'
+export const SAVE_DATA =  'home/save_data'
