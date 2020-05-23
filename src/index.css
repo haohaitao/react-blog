@@ -1,4 +1,7 @@
-  @media screen and (max-width: 1000px) {
+	#root {
+		min-width:300px;
+	}
+	@media screen and (max-width: 1000px) {
 	aside {
 		display: none;
 	}
@@ -89,6 +92,9 @@
 	.home-left {
 	  float: none !important;
 	  text-align: center;
+	}
+	.image-box {
+		padding: 0 !important;
 	}
 	.desc {
 		width:100% !important;
