@@ -1,49 +1,46 @@
 import React, { Component } from 'react';
 import { MainWrapper } from './style'
-import * as http from '../../common/http';
 import { connect } from 'react-redux';
+import {Spin } from 'antd'
 import * as actionCreators from '../../components/store/actionCreators'
+import * as action from './store/actionCreators'
 
 class Everyday extends Component {
-  constructor(props){
-    super(props)
-    this.state = {
-      val:[]
-    }
-  }
+
   componentDidMount(){
     document.title = "每日一图 - 郝海涛的个人网站"
-    http.getJson('api/wp-json/wp/v2/pages/994','','').then( (res)=> {
-      if(res.status === 200){
-        res.data.content = res.data.content.rendered
-        this.setState({
-          val:res.data
-        })
-      }
-    })
   }
   render(){
-    const { val } = this.state;
+    const { val, loading } = this.props;
     return (
       <MainWrapper className="mobile_everyday animated rollIn">
-        <article className="excerpt" dangerouslySetInnerHTML={{__html:val.content}}></article>
+          <Spin  tip="Loading..." style={{marginTop: '25%'}} spinning={loading}>
+              <article className="excerpt" dangerouslySetInnerHTML={{__html:val.content}}></article>
+          </Spin>
       </MainWrapper>
     )
   } 
 
   componentWillMount(){
-    const { menu_changeState } = this.props;
+    const { menu_changeState, get_request } = this.props;
     menu_changeState();
+    get_request();
   }
 
 }
 
 const mapState = state => ({
+  val: state.everyday.data,
+  loading: state.everyday.loading_state
 })
 
 const mapDispatch = dispatch => ({
   menu_changeState(value){
       dispatch(actionCreators.is_MenuState(value) )
+  },
+  //请求接口
+  get_request(){
+    dispatch(action.getData())
   }
 })
 
