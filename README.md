@@ -14,7 +14,7 @@ create-react-app + react + react-router-dom + react-redux + redux-thunk + axios 
 
 ``` bash
 # install dependencies
-cnpm install
+yarn
 
 # serve with hot reload at localhost:3000
 npm start

@@ -9,6 +9,8 @@ import * as actionCreators from '../../components/store/actionCreators';
 class HomeMain extends Component {
   componentDidMount(){
     document.title = "郝海涛的个人网站 - Hao HaiTao's Personal Website"
+    const { menu_changeState } = this.props;
+    menu_changeState();
   }
   render(){
     const { loading } = this.props;
@@ -21,11 +23,6 @@ class HomeMain extends Component {
       </HomeWrapper>
     )
   } 
-
-  componentWillMount(){
-    const { menu_changeState } = this.props;
-    menu_changeState();
-  }
 
 }
 

@@ -12,9 +12,7 @@ class Categories extends Component {
       listData:[]
     }
   }
-  componentDidMount(){
-    document.title = "分类 - 郝海涛的个人网站"
-  }
+  
   render() {
     return (
       <MainWrapper>
@@ -24,7 +22,8 @@ class Categories extends Component {
     );
   }
 
-  componentWillMount(){
+  componentDidMount(){
+    document.title = "分类 - 郝海涛的个人网站"
     const { menu_changeState } = this.props;
     menu_changeState();
   }

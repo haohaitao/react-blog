@@ -10,7 +10,7 @@ class Cate extends Component {
       listData:[]
     }
   }
-  componentWillMount() {
+  componentDidMount() {
     // 分类
     http.getJson('/api/wp-json/wp/v2/categories', '', '').then((res) => {
       if (res.status === 200) {

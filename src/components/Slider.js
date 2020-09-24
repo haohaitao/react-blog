@@ -101,7 +101,7 @@ class Slider extends Component {
       top: 90,
     }
   }
-  componentWillMount() {
+  componentDidMount() {
     // 最新文章
     http.getJson('/api/wp-json/wp/v2/posts', '', '').then((res) => {
       if (res.status === 200) {

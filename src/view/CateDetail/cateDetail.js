@@ -105,7 +105,7 @@ class CateDetail extends Component {
       category_name:'',//分类名字
     }
   }
-  componentWillMount() {
+  componentDidMount() {
     // 分类
     let cateId = this.props.match.params.id
     http.getJson('/api/wp-json/wp/v2/posts?per_page=12&categories=' + cateId, '', '').then((res) => {

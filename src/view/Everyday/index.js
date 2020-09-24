@@ -7,9 +7,6 @@ import * as action from './store/actionCreators'
 
 class Everyday extends Component {
 
-  componentDidMount(){
-    document.title = "每日一图 - 郝海涛的个人网站"
-  }
   render(){
     const { val, loading } = this.props;
     return (
@@ -21,10 +18,11 @@ class Everyday extends Component {
     )
   } 
 
-  componentWillMount(){
+  componentDidMount(){
     const { menu_changeState, get_request } = this.props;
     menu_changeState();
     get_request();
+    document.title = "每日一图 - 郝海涛的个人网站"
   }
 
 }

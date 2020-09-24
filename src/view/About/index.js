@@ -4,9 +4,7 @@ import { connect } from 'react-redux';
 import * as actionCreators from '../../components/store/actionCreators';
 
 class About extends Component {
-  componentDidMount(){
-    document.title = "关于 - 郝海涛的个人网站"
-  }
+
   render() {
     return (
       <Wrapper>
@@ -29,7 +27,8 @@ class About extends Component {
     )
   }
 
-  componentWillMount(){
+  componentDidMount(){
+    document.title = "关于 - 郝海涛的个人网站"
     const { menu_changeState } = this.props;
     menu_changeState();
   }

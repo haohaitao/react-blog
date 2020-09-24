@@ -49,7 +49,7 @@ class Home extends Component {
             </SectionContent>
     )
   }
-  componentWillMount(){
+  componentDidMount(){
     const { get_data } = this.props;
     get_data(); //获取数据
   } 
