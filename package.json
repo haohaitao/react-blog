@@ -11,7 +11,7 @@
     "redux": "^4.0.4",
     "react-redux": "^7.1.0",
   	"antd": "^3.20.7",
-  	"axios": "^0.19.1",
+  	"axios": "^0.21.1",
   	"valine": "^1.3.10",
   	"styled-components": "^4.3.2",
     "react-router-dom": "^5.1.2",
