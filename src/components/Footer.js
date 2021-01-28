@@ -1,8 +1,8 @@
 /*
- * @Description  :
- * @Author       : pacino
+ * @Description  : 页脚文件
+ * @Author       : haohaitao
  * @Date         : 2021-01-28 11:47:26
- * @LastEditTime : 2021-01-28 11:56:03
+ * @LastEditTime : 2021-01-28 13:50:01
  * @LastEditors  : pacino
  */
 import React, { Component } from "react";
