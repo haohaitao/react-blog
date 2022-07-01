@@ -2,12 +2,12 @@
  * @Description:
  * @Author: pacino
  * @Date: 2022-07-01 00:03:54
- * @LastEditTime: 2022-07-01 10:33:57
+ * @LastEditTime: 2022-07-01 10:52:06
  * @LastEditors: pacino
  */
 import axios from "axios";
 import { message } from "antd";
-const error = (msg) => {
+const httpError = (msg) => {
   message.error(msg);
 };
 
@@ -21,12 +21,12 @@ service.interceptors.response.use(
     if (response.status === 200) {
       return Promise.resolve(response);
     } else {
-      error("数据异常，请稍后重试");
+      httpError("数据异常，请稍后重试");
       return Promise.reject(response || "error");
     }
   },
   (error) => {
-    error("数据异常，请稍后重试");
+    httpError("数据异常，请稍后重试");
     return Promise.reject(error);
   }
 );

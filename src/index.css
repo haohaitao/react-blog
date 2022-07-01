@@ -679,6 +679,6 @@ body{
 }
 
 .detail-loading{
-	padding:0px;
-	background:transparent;
+	padding: 0px !important;
+	background: transparent !important; 
 }

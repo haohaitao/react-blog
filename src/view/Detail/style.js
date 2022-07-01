@@ -2,7 +2,7 @@
  * @Description:
  * @Author: pacino
  * @Date: 2022-07-01 00:03:54
- * @LastEditTime: 2022-07-01 10:33:46
+ * @LastEditTime: 2022-07-01 10:54:25
  * @LastEditors: pacino
  */
 import styled from "styled-components";
@@ -10,7 +10,7 @@ import styled from "styled-components";
 export const ArticleContent = styled.article`
   animation: fadeIn 0.6s linear;
   max-width: 700px;
-  padding: 0 25px 30px;
+  padding: 25px 30px;
   margin: 0 auto;
   background-color: #fff;
   position: relative;
