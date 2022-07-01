@@ -677,3 +677,8 @@ body{
 .comment-list .dp-highlighter ol {
 	margin: 0;
 }
+
+.detail-loading{
+	padding:0px;
+	background:transparent;
+}
