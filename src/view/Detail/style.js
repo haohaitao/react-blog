@@ -93,4 +93,15 @@ export const ArticleContent = styled.article`
   #blog p {
     text-indent: 2rem;
   }
+  #blog h5 {
+    font-size: 16px;
+    line-height: 190%;
+    margin: 2px -21px 10px -21px;
+    padding: 0 44px;
+    &:before {
+      margin-right: 5px;
+      content: "#";
+      color: #f72d84;
+    }
+  }
 `;
