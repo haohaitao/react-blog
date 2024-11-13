@@ -90,4 +90,7 @@ export const ArticleContent = styled.article`
     color: #555;
     cursor: pointer;
   }
+  #blog p {
+    text-indent: 2rem;
+  }
 `;
